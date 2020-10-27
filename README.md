@@ -49,22 +49,22 @@ Get the value of changed variables lines by line
 
 ### Variable mode():
 ```bash
-chass {path-to-file} {--variable}={variable-name}
+chass {path-to-file} --variable={variable-name}
 ```
 or
 
 ```bash
-chass {path-to-file} {-v} {variable-name}
+chass {path-to-file} -v {variable-name}
 ```
 Get the value of specific variable line by line
 
 ### Variable at given line mode():
 ```bash
-chass {path-to-file} {--variable}={variable-name} {--line}={line-number}
+chass {path-to-file} --variable={variable-name} --line={line-number}
 ```
 or
 ```bash
-chass {path-to-file} {-v} {variable-name} {-l} {line-number}
+chass {path-to-file} -v {variable-name} -l {line-number}
 ```
 Get the value of a specific variable at a specific line
 
