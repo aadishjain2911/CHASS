@@ -75,11 +75,13 @@ File path is the argument that must be provided.
    <a name="line">
 
    #### Variable at given line mode():
-    ```bash
-    chass {path-to-file} --variable={variable-name} --line={line-number}
-    ```
+   
+   ```bash
+   chass {path-to-file} --variable={variable-name} --line={line-number}
+   ```
     
    or
+   
    ```bash
    chass {path-to-file} -v {variable-name} -l {line-number}
    ```
