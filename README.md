@@ -21,7 +21,7 @@ Now set up make a virtual env inside the repo
 ```bash
 python3 -m venv chassenv
 ```
-Actiavte the vitual env
+Activate the virtual env
 ```bash
 source chassenv/bin/activate
 ```
