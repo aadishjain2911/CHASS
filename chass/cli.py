@@ -11,7 +11,7 @@ from chass.locate_loops import locate_loops
 @click.command()
 @click.option('--variable', '-v', help='Execute this specific variable')
 @click.option('--line', '-l', type=int, help='Get value for a particular line')
-@click.version_option()
+@click.option('--quit','-q', help='exit chass debugger')
 @click.argument('file', type=click.Path())
 
 def cli(variable, line, quit, file):
@@ -44,7 +44,7 @@ def cli(variable, line, quit, file):
     for (a, b, c) in variables_info:
         funcvar(f, a, b, input_parameters)
         time.sleep(0.5)
-		
+
     #if variable is provided
     if variable:
 
@@ -68,19 +68,11 @@ def cli(variable, line, quit, file):
             click.echo("Given variable not found!")
 
         elif line :
-            value = get_value_at_line(variable, line)
+            value = get_value_at_line(variable, line-1)
             #check variable scope
-            if line > num_lines or line < 0 :
+            if line > num_lines or line <= 0 :
                 click.echo("Line number out of file!")
             elif value == "\n":
-                click.echo("Variable out of scope!")
-            else:
-                click.echo(value) 
-
-        elif line==0 :
-            value = get_value_at_line(variable,0)
-            # check variable scope
-            if value == "\n":
                 click.echo("Variable out of scope!")
             else:
                 click.echo(value) 
@@ -89,11 +81,11 @@ def cli(variable, line, quit, file):
             idx=0
             new_file = open("copy.sh")
             for li in new_file:
-                click.echo("line : "+str(idx))
+                click.echo("press ENTER to continue")
                 var = input()
                 if(var==''):
+                    click.echo("line : "+str(idx+1))
                     click.echo(get_value_at_line(variable,idx))
-                click.echo("press ENTER to continue")
                 idx +=1
 
     #Default version
@@ -131,7 +123,7 @@ def cli(variable, line, quit, file):
             var = input()
             if(var==''):
                 variables_info = changed_variables(f, i)
-                click.echo("line : "+str(i))
+                click.echo("line : "+str(i+1))
                 
                 #check if variable is changed or not
                 if variables_info:
@@ -139,7 +131,6 @@ def cli(variable, line, quit, file):
                         click.echo(variables_info[j][0] + " " + variables_info[j][1])
                 else:
                     click.echo("No variable change!")
-                    
     # delete all temp file created during execution   
     subprocess.call("rm *.txt", shell=True)
     subprocess.call("rm *.sh", shell=True)
