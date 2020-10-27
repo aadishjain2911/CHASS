@@ -1,5 +1,6 @@
 import click
 import subprocess
+import time
 from chass.preprocessing import preprocessing
 from chass.changed_variables import changed_variables
 from chass.identify_variables import identify_variables
@@ -10,7 +11,7 @@ from chass.locate_loops import locate_loops
 @click.command()
 @click.option('--variable', '-v', help='Execute this specific variable')
 @click.option('--line', '-l', type=int, help='Get value for a particular line')
-@click.option('--quit','-q', help='exit chass debugger')
+@click.version_option()
 @click.argument('file', type=click.Path())
 
 def cli(variable, line, quit, file):
@@ -38,12 +39,12 @@ def cli(variable, line, quit, file):
     click.echo("Provide input parameters and press ENTER : ")
 
     for argument in input().split(" ") :
-        input_parameters.append(argument)     
-    
+        input_parameters.append(argument)
+
     for (a, b, c) in variables_info:
-            funcvar(f, a, b, input_parameters)
-
-
+        funcvar(f, a, b, input_parameters)
+        time.sleep(0.5)
+		
     #if variable is provided
     if variable:
 
@@ -78,7 +79,7 @@ def cli(variable, line, quit, file):
 
         elif line==0 :
             value = get_value_at_line(variable,0)
-             #check variable scope
+            # check variable scope
             if value == "\n":
                 click.echo("Variable out of scope!")
             else:
@@ -138,7 +139,7 @@ def cli(variable, line, quit, file):
                         click.echo(variables_info[j][0] + " " + variables_info[j][1])
                 else:
                     click.echo("No variable change!")
-
-    #delete all temp file created during execution   
+                    
+    # delete all temp file created during execution   
     subprocess.call("rm *.txt", shell=True)
     subprocess.call("rm *.sh", shell=True)
