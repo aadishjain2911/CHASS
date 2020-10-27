@@ -1,9 +1,15 @@
-from identify_variables import identify_variables
-from get_line_number import get_line_number
+from chass.identify_variables import identify_variables
+from chass.get_line_number import get_line_number
+
+# This function takes the preprocessed file and the line number as an argument
+# It returns a list of tuples of variables whose values have changed with respect to the previous line 
+# The elements of each tuple are name of the variable and its value in the form of a string
+# In case of list variables, the value is in the form of space separated elements of the list ending with a "\n"  
 
 def changed_variables(orig_file,line_number) :
+	# orig_file = "copy.sh"
 	myfile = open(orig_file,"r")
-	variables = identify_variables(myfile)
+	variables = identify_variables(orig_file)
 	changed_variables = []
 	for (var,var_type,line_num) in variables :
 		file = var+".txt"
