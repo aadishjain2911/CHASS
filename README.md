@@ -3,11 +3,17 @@ Code Hide And Seek Surveillance
 
 A user friendly CLI debugging tool exclusively for bash scripts.
 ## Table of Content
-[Installation](#installation)
+* [Installation](#installation)
 
-[Usage](#usage)
+* [Usage](#usage)
 
-[Contributing](#contributing)
+   * [Default Mode](#default)
+   
+   * [Variable Mode](#variable)
+   
+   * [Variable Line Mode](#line)
+   
+* [Contributing](#contributing)
 
 ---
 
@@ -40,33 +46,45 @@ chass --help
 
 File path is the argument that must be provided.
 
-### Default mode(): 
+   <a name="default">
+  
+  #### Default mode(): 
 
-```bash
-chass {path-to-file}
-``` 
-Get the value of changed variables lines by line
+   ```bash
+   chass {path-to-file}
+   ``` 
 
-### Variable mode():
-```bash
-chass {path-to-file} --variable={variable-name}
-```
-or
+   Get the value of changed variables lines by line
 
-```bash
-chass {path-to-file} -v {variable-name}
-```
-Get the value of specific variable line by line
+   <a name="variable">
+   
+   #### Variable mode():
+   
+   ```bash
+    chass {path-to-file} --variable={variable-name}
+   ```
+   
+   or
 
-### Variable at given line mode():
-```bash
-chass {path-to-file} --variable={variable-name} --line={line-number}
-```
-or
-```bash
-chass {path-to-file} -v {variable-name} -l {line-number}
-```
-Get the value of a specific variable at a specific line
+   ```bash
+   chass {path-to-file} -v {variable-name}
+   ```
+   
+   Get the value of specific variable line by line
+
+   <a name="line">
+
+   #### Variable at given line mode():
+    ```bash
+    chass {path-to-file} --variable={variable-name} --line={line-number}
+    ```
+    
+   or
+   ```bash
+   chass {path-to-file} -v {variable-name} -l {line-number}
+   ```
+   
+   Get the value of a specific variable at a specific line
 
 ---
 
