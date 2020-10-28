@@ -23,7 +23,7 @@ If you don't have virtualenv installed
 ```bash
 sudo pip3 install virtualenv
 ```
-Now set up make a virtual env inside the repo
+Now make a virtual env inside the repo
 ```bash
 python3 -m venv chassenv
 ```
@@ -49,16 +49,17 @@ File path is the argument that must be provided.
    <a name="default">
   
   #### Default mode(): 
-
+  
+   Get the value of changed variables lines by line
+    
    ```bash
    chass {path-to-file}
    ``` 
-
-   Get the value of changed variables lines by line
-
    <a name="variable">
    
    #### Variable mode():
+   
+   Get the value of specific variable line by line
    
    ```bash
     chass {path-to-file} --variable={variable-name}
@@ -69,12 +70,12 @@ File path is the argument that must be provided.
    ```bash
    chass {path-to-file} -v {variable-name}
    ```
-   
-   Get the value of specific variable line by line
 
    <a name="line">
 
    #### Variable at given line mode():
+   
+   Get the value of a specific variable at a specific line
    
    ```bash
    chass {path-to-file} --variable={variable-name} --line={line-number}
@@ -86,8 +87,6 @@ File path is the argument that must be provided.
    chass {path-to-file} -v {variable-name} -l {line-number}
    ```
    
-   Get the value of a specific variable at a specific line
-
 ---
 
 ## Contributing
