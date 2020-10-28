@@ -17,6 +17,17 @@ from chass.locate_loops import locate_loops
 def cli(variable, line, quit, file):
     """A user friendly CLI Debugging application exclusively for Bash Scripts"""
     
+    #delete all pre-existing .txt files
+    try :
+        subprocess.call("rm *.txt", shell=True)
+    except : 
+        pass
+    
+    #delete all pre-existing .sh files
+    try :
+        subprocess.call("rm *.sh", shell=True)
+    except : 
+        pass
     #create a copy of original file for furthue processing
     preprocessing(file)
     
