@@ -11,12 +11,12 @@ from chass.locate_loops import locate_loops
 @click.command()
 @click.option('--variable', '-v', help='Execute this specific variable')
 @click.option('--line', '-l', type=int, help='Get value for a particular line')
-@click.option('--quit','-q', help='exit chass debugger')
+@click.version_option()
 @click.argument('file', type=click.Path())
 
 def cli(variable, line, quit, file):
     """A user friendly CLI Debugging application exclusively for Bash Scripts"""
-
+    
     #create a copy of original file for furthue processing
     preprocessing(file)
     
