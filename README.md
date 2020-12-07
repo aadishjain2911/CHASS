@@ -87,6 +87,91 @@ File path is the argument that must be provided.
    chass {path-to-file} -v {variable-name} -l {line-number}
    ```
    
+   #### Code at a given line mode():
+   
+   Get code at a specified line
+   ```bash
+   chass {path-to-file} --code {line-number}
+   ```
+   or
+   
+   ```bash
+   chass {path-to-file} -c {line-number}
+   ```
+   
+   #### Get Particular segment of your code :
+   
+   Get a particular section of code present between two line numbers
+    
+   ```bash
+   chass {path-to-file} --codeline {start-line-number} {end-line-number}
+   ```
+   
+   #### Debug only a particular section of your code :
+   
+   Debugs only the section present between two line numbers
+   
+   ```bash
+   chass {path-to-file} --breakpoints {start-line-number} {end-line-number}
+   ```
+   
+   #### function mode() :
+   
+   Debug a function by providing the name of the function
+   
+   ```bash
+   chass {path-to-file} -f {function_name}
+   ```
+   or
+   
+   ```bash
+   chass {path-to-file} --function {function_name}
+   ```
+   
+   #### printall mode() :
+   
+   Prints all the changed variables' values at every line in one go
+   
+   ```bash
+   chass {path-to-file} --printall
+   ```
+   or
+   
+   ```bash
+   chass {path-to-file} -p
+   ```
+   
+   #### get actual output :
+   
+   Shows the actual output of the file
+   
+   ```bash
+   chass {path-to-file} --output
+   ```
+   or
+   
+   ```bash
+   chass {path-to-file} -o
+   ```
+   
+   #### EXPRESSION MODE ():
+   
+   At any given line you can write valid syntax bash expression involving any of defined variables. We will give value of that expression by using values of variables upto that line
+   
+   Step 1 :
+   write expr in the default mode() at any line
+   
+   ```bash
+   expr
+   ```
+   
+   Step 2 :
+   write the expression in bash syntax
+   
+   ```bash
+   {expression_to_be_calculated_in_valid_bash_syntax}
+   ```
+   
 ---
 
 ## Contributing
