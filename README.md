@@ -39,6 +39,8 @@ A user friendly CLI debugging tool exclusively for bash scripts.
    
    * [Code at any point in Default Mode](#c)
    
+   * [Quit](#quit)
+   
 * [Limitations](#limitations)
 
 * [Contributing](#contributing)
@@ -287,7 +289,17 @@ File path is the argument that must be provided.
    ```bash
    c
    ```
-
+   <a name="quit">
+  
+  #### Quit():
+  
+  You can exit the process at any stage by typing quit. If you are inside any loop, a single quit will get you out of the loop and typing quit again will terminate chass
+  
+  
+  ```bash
+   quit
+   ```
+  
 ---
 <a name="limitations">
   
