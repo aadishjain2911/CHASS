@@ -10,7 +10,6 @@ setup(
     description="A user friendly CLI Debugging application exclusively for Bash Scripts",
     long_description = long_description,
     long_description_content_type="markdown",
-    url="https://github.com/aadishjain2911/CHASS",
     packages=find_packages(),
     py_modules=['chass'],
     classifiers=[
